@@ -1,0 +1,10 @@
+.nav-bar-custom {
+  width: 16rem;
+  height: 680px;
+  overflow: scroll;
+  border-right: 1px solid #d8dee6;
+}
+
+.no-margin{
+  margin: 0px;
+}

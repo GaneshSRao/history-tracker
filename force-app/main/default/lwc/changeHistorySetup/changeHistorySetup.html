@@ -1,0 +1,51 @@
+<template>
+  <div class="slds-card">
+    <div class="slds-card__body no-margin">
+      <lightning-layout>
+        <lightning-layout-item>
+          <div class="nav-bar-custom">
+            <lightning-vertical-navigation
+              selected-item={selectedItem}
+              onselect={handleSelect}
+            >
+              <lightning-vertical-navigation-section>
+                <template if:true={objects}>
+                  <template for:each={objects} for:item="item">
+                    <lightning-vertical-navigation-item
+                      key={item.name}
+                      label={item.label}
+                      name={item.name}
+                    ></lightning-vertical-navigation-item>
+                  </template>
+                </template>
+              </lightning-vertical-navigation-section>
+            </lightning-vertical-navigation>
+          </div>
+        </lightning-layout-item>
+        <lightning-layout-item flexibility="auto">
+          <div class="slds-page-header">
+            <div class="slds-page-header__row">
+              <div class="slds-page-header__col-title">
+                <div class="slds-page-header__name">
+                  <div class="slds-page-header__name-title">
+                    <h1>
+                      <span
+                        class="slds-page-header__title slds-truncate"
+                        title="Rohde Corp - 80,000 Widgets"
+                        >{currentContent}</span
+                      >
+                    </h1>
+                  </div>
+                </div>
+                <p class="slds-page-header__name-meta">
+                  Select the fields to be tracked in the Change History
+                </p>
+              </div>
+            </div>
+          </div>
+          <c-setup-field-list> </c-setup-field-list>
+        </lightning-layout-item>
+      </lightning-layout>
+    </div>
+  </div>
+</template>
