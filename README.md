@@ -1,4 +1,4 @@
-## Installing Quiz-Master using a Scratch Org
+## Installing App using a Scratch Org
 
 ### Clone Quiz Master repository
 git clone https://<span></span>github.com/GaneshSRao/history-tracker.git  <br/>
