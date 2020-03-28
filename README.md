@@ -2,7 +2,7 @@
 
 ### Clone Quiz Master repository
 git clone https://<span></span>github.com/GaneshSRao/history-tracker.git  <br/>
-cd quiz-master
+cd history-tracker
 
 ### Authorise a dev hub
 sfdx force:auth:web:login -d -a DevHub
