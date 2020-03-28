@@ -1,6 +1,6 @@
 ## Installing App using a Scratch Org
 
-### Clone Quiz Master repository
+### Clone History Tracker repository
 git clone https://<span></span>github.com/GaneshSRao/history-tracker.git  <br/>
 cd history-tracker
 
