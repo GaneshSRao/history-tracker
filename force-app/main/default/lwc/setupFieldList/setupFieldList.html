@@ -1,13 +1,38 @@
 <template>
-  <lightning-layout>
-    <lightning-layout-item>
-      <lightning-checkbox-group
-        name="Checkbox Group"
-        label="Checkbox Group"
-        options={options}
-        value={value}
-        onchange={handleChange}
-      ></lightning-checkbox-group>
-    </lightning-layout-item>
-  </lightning-layout>
+  <div class="slds-grid slds-wrap slds-card slds-p-around_x-small">
+    <template if:true={options.data}>
+      <template for:each={options.data} for:item="item">
+        <div
+          key={item.value}
+          class="picker-padding-custom slds-col slds-size_1-of-1 slds-small-size_6-of-12 slds-medium-size_4-of-12 slds-large-size_3-of-12"
+        >
+          <div class="slds-visual-picker picker-width-custom">
+            <input
+              type="checkbox"
+              id={item.value}
+              value={item.value}
+              name="fields"
+              checked={item.selected}
+              onclick={clickHandler}
+            />
+            <label for={item.value}>
+              <span class="picker-height-custom slds-visual-picker__figure slds-visual-picker__text slds-align_absolute-center">
+                <span>
+                  <p class="slds-text-heading_x_small slds-m-bottom_x_small slds-p-horizontal--small">
+                    {item.label}
+                  </p>
+                </span>
+              </span>
+              <span class="slds-icon_container slds-visual-picker__text-check">
+                <svg class="slds-icon slds-icon-text-check slds-icon_x-small" width="12" height="12" viewBox="0 -5 30 30" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+                  <use xlink:href="/assets/icons/utility-sprite/svg/symbols.svg#check" ></use>
+                  <path d="M0 11.386l1.17-1.206c1.951.522 5.313 1.731 8.33 3.597 3.175-4.177 9.582-9.398 13.456-11.777l1.044 1.073-14 18.927-10-10.614z"></path>
+                </svg>
+              </span>
+            </label>
+          </div>
+        </div>
+      </template>
+    </template>
+  </div>
 </template>

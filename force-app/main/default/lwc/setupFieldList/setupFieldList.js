@@ -1,34 +1,34 @@
-import { LightningElement, track } from 'lwc';
+import { LightningElement, api, wire } from 'lwc';
+import getFieldsByObjectName from '@salesforce/apex/ChangeHistorySetupController.getFieldsByObjectName';
 
-const options = [
-    { label: 'Account Name', value: 'AccountId' },
-    { label: 'Amount', value: 'Amount' },
-    { label: 'Close Date', value: 'CloseDate' },
-    { label: 'Contract', value: 'ContractId' },
-    { label: 'Created By', value: 'CreatedById' },
-    { label: 'Forecast Category Name', value: 'ForecastCategoryName' },
-    { label: 'Last Modified By', value: 'LastModifiedById' },
-    { label: 'LeadS ource', value: 'LeadSource' },
-    { label: 'Next Step', value: 'NextStep' },
-    { label: 'Opportunity Name', value: 'OpportunityName' },
-    { label: 'Opportunity Owner', value: 'OpportunityOwner' },
-    { label: 'Primary Campaign Source', value: 'CampaignSource' },
-    { label: 'Probability', value: 'Probability' },
-    { label: 'Score', value: 'Score' },
-    { label: 'Stage', value: 'Stage' },
-    { label: 'Type', value: 'Type' },
-    { label: 'Description', value: 'Description' },
-];
+// const options = [
+//     { label: 'Account Name', value: 'AccountId' , selected:true},
+//     { label: 'Amount', value: 'Amount' ,selected:true},
+//     { label: 'Close Date', value: 'CloseDate' ,selected:true},
+//     { label: 'Contract', value: 'ContractId' ,selected:false},
+//     { label: 'Created By', value: 'CreatedById' ,selected:false},
+//     { label: 'Forecast Category Name', value: 'ForecastCategoryName' ,selected:true},
+//     { label: 'Last Modified By', value: 'LastModifiedById' ,selected:false},
+//     { label: 'Lead Source', value: 'LeadSource' ,selected:false},
+//     { label: 'Next Step', value: 'NextStep' ,selected:false},
+//     { label: 'Opportunity Name', value: 'OpportunityName' ,selected:false},
+//     { label: 'Opportunity Owner', value: 'OpportunityOwner' ,selected:false},
+//     { label: 'Primary Campaign Source', value: 'CampaignSource' ,selected:false},
+//     { label: 'Probability', value: 'Probability' ,selected:false},
+//     { label: 'Score', value: 'Score__c' ,selected:false},
+//     { label: 'Stage', value: 'Stage' ,selected:false},
+//     { label: 'Type', value: 'Type' ,selected:false},
+//     { label: 'Description', value: 'Description' ,selected:false},
+// ];
 
-export default class SetupFieldList extends LightningElement {
-    @track value = [];
-    @track options = options;
+export default class App extends LightningElement {
 
-    get selectedValues() {
-        return this.value.join(',');
-    }
+    @api objectapi;
+    @wire(getFieldsByObjectName, {objectApi:"$objectapi"})
+    options;
+    // @track options = options; 
 
-    handleChange(e) {
-        this.value = e.detail.value;
+    clickHandler(e){
+        alert(e.target.value + e.target.checked);
     }
 }

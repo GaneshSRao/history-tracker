@@ -1,0 +1,13 @@
+.picker-height-custom{
+    /* background: red; */
+    height: 4em;
+}
+.picker-padding-custom{
+    padding: 0.5em;
+    /* padding-right: 1em;
+    padding-top: 1em; */
+}
+
+.picker-width-custom{
+    width: 100%;
+}

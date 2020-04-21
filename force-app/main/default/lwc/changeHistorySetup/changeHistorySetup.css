@@ -1,10 +1,16 @@
 .nav-bar-custom {
   width: 16rem;
-  height: 680px;
+  height: 44rem;
   overflow: scroll;
   border-right: 1px solid #d8dee6;
 }
 
 .no-margin{
   margin: 0px;
+  height: 44rem;
+}
+
+.fields-set-custom{
+  overflow: scroll;
+  height: 39rem;
 }

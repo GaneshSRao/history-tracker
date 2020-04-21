@@ -9,8 +9,8 @@
               onselect={handleSelect}
             >
               <lightning-vertical-navigation-section>
-                <template if:true={objects}>
-                  <template for:each={objects} for:item="item">
+                <template if:true={objects.data}>
+                  <template for:each={objects.data} for:item="item">
                     <lightning-vertical-navigation-item
                       key={item.name}
                       label={item.label}
@@ -41,9 +41,21 @@
                   Select the fields to be tracked in the Change History
                 </p>
               </div>
+              <div class="slds-page-header__col-actions">
+                <!-- <lightning-button-group>
+                  <lightning-button label="Select All"></lightning-button>
+                  <lightning-button label="Deselect All"></lightning-button>
+                </lightning-button-group> -->
+                <lightning-button-group>
+                  <lightning-button label="Refresh" disabled></lightning-button>
+                  <lightning-button label="Save"></lightning-button>
+                </lightning-button-group>
+              </div>
             </div>
           </div>
-          <c-setup-field-list> </c-setup-field-list>
+          <div class="fields-set-custom">
+          <c-setup-field-list objectapi={currentContent}> </c-setup-field-list>
+          </div>
         </lightning-layout-item>
       </lightning-layout>
     </div>
