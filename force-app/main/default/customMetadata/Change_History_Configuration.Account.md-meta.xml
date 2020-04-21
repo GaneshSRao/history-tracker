@@ -8,6 +8,6 @@
     </values>
     <values>
         <field>Tracked_Fields__c</field>
-        <value xsi:type="xsd:string">Account_Name,Account_type</value>
+        <value xsi:type="xsd:string">Name,AnnualRevenue,Industry,Rating,Type,Phone</value>
     </values>
 </CustomMetadata>
