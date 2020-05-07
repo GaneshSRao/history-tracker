@@ -47,4 +47,24 @@ public with sharing class ChangeHistroySetupUtil {
   ) {
     return schemaMap.get(selectedObject).getDescribe().fields.getMap();
   }
+
+  public static String getConfigurationByObjectApi(String selectedObject) {
+    //fetch mdt
+    if (
+      !Schema.sObjectType.Change_History_Configuration__mdt.fields.Tracked_Fields__c.isAccessible()
+    ) {
+      return '';
+    }
+    String objConfig = '';
+    List<Change_History_Configuration__mdt> configList = [
+      SELECT id, Tracked_Fields__c
+      FROM Change_History_Configuration__mdt
+      WHERE Object_API__c = :selectedObject
+    ];
+    if(configList.size()>0){
+      objConfig = configList.get(0).Tracked_Fields__c;
+    }
+    return objConfig;
+  }
+  
 }

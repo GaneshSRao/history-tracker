@@ -23,39 +23,7 @@
           </div>
         </lightning-layout-item>
         <lightning-layout-item flexibility="auto">
-          <div class="slds-page-header">
-            <div class="slds-page-header__row">
-              <div class="slds-page-header__col-title">
-                <div class="slds-page-header__name">
-                  <div class="slds-page-header__name-title">
-                    <h1>
-                      <span
-                        class="slds-page-header__title slds-truncate"
-                        title="Rohde Corp - 80,000 Widgets"
-                        >{currentContent}</span
-                      >
-                    </h1>
-                  </div>
-                </div>
-                <p class="slds-page-header__name-meta">
-                  Select the fields to be tracked in the Change History
-                </p>
-              </div>
-              <div class="slds-page-header__col-actions">
-                <!-- <lightning-button-group>
-                  <lightning-button label="Select All"></lightning-button>
-                  <lightning-button label="Deselect All"></lightning-button>
-                </lightning-button-group> -->
-                <lightning-button-group>
-                  <lightning-button label="Refresh" disabled></lightning-button>
-                  <lightning-button label="Save"></lightning-button>
-                </lightning-button-group>
-              </div>
-            </div>
-          </div>
-          <div class="fields-set-custom">
-          <c-setup-field-list objectapi={currentContent}> </c-setup-field-list>
-          </div>
+          <c-setup-field-list objectapi={currentObjectApi} objectname={currentobjectLabel}> </c-setup-field-list>
         </lightning-layout-item>
       </lightning-layout>
     </div>

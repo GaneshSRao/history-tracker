@@ -37,20 +37,31 @@ public with sharing class ChangeHistorySetupController {
     List<FieldWrapper> fieldsList = new List<FieldWrapper>();
 
     Map<String, Schema.SObjectField> fieldDescribeMap = ChangeHistroySetupUtil.getFieldsDescribe(objectApi);
+
+    String objConfig = ChangeHistroySetupUtil.getConfigurationByObjectApi(objectApi);
+
+    List<String> configFieldsList = objConfig.split(',');
+
     if (!fieldDescribeMap.isEmpty()) {
-      for (String fieldAPIName : fieldDescribeMap.keyset()) {
+      for (Schema.SObjectField field : fieldDescribeMap.values()) {
         fieldsList.add(
           new FieldWrapper(
-            fieldDescribeMap.get(fieldAPIName).getDescribe().getLabel(),
-            fieldAPIName,
-            false
+            field.getDescribe().getLabel(),
+            field.getDescribe().getName(),
+            configFieldsList.contains(field.getDescribe().getName())?true:false
           )
         );
       }
     }
     fieldsList.sort();
-    System.debug(fieldsList);
     return fieldsList;
+  }
+
+  @AuraEnabled(cacheable=true)
+  public static void createConfigRecord(String objectApi, String trackedFields){
+      //save new
+      //System.debug('***'+objectApi+'***'+trackedFields);
+      MetadataDeployUtil.deployMetadataCreate(objectApi.replace('__','_'), objectApi, trackedFields);
   }
 
   public class ObjectWrapper implements Comparable {

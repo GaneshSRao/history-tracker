@@ -11,3 +11,12 @@
 .picker-width-custom{
     width: 100%;
 }
+
+.fields-set-custom{
+    overflow: scroll;
+    height: 39rem;
+  }
+
+  .spinner-custom{
+      margin-top: 50%;
+  }
