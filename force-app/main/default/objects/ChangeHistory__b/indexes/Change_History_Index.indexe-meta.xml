@@ -6,12 +6,12 @@
         <sortDirection>ASC</sortDirection>
     </fields>
     <fields>
-        <name>Field__c</name>
-        <sortDirection>ASC</sortDirection>
-    </fields>
-    <fields>
         <name>ChangedDate__c</name>
         <sortDirection>DESC</sortDirection>
+    </fields>
+    <fields>
+        <name>Field__c</name>
+        <sortDirection>ASC</sortDirection>
     </fields>
     <label>Change History Index</label>
 </Index>
